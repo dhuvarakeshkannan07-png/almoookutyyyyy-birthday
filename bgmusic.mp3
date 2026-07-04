@@ -1,0 +1,52 @@
+// ==========================
+// BACKGROUND MUSIC
+// ==========================
+
+const music = new Audio("audio/bgmusic.mp3");
+
+music.loop = true;
+
+music.volume = 0.35;
+
+let started = false;
+
+document.body.addEventListener("click",()=>{
+
+if(!started){
+
+music.play();
+
+started=true;
+
+}
+
+},{once:true});
+// ==========================
+// MUTE BUTTON
+// ==========================
+
+const mute=document.createElement("button");
+
+mute.innerHTML="🔊";
+
+mute.id="muteBtn";
+
+document.body.appendChild(mute);
+
+mute.onclick=function(){
+
+music.muted=!music.muted;
+
+mute.innerHTML=
+
+music.muted
+
+?
+
+"🔇"
+
+:
+
+"🔊";
+
+}
